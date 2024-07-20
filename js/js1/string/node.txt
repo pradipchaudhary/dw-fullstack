@@ -1,0 +1,37 @@
+JavaScript provides a variety of string methods to manipulate and interact with strings. Here's a list of the most commonly used JavaScript string methods:
+
+1. **charAt(index)**: Returns the character at the specified index.
+2. **charCodeAt(index)**: Returns the Unicode of the character at the specified index.
+3. **codePointAt(index)**: Returns a non-negative integer that is the Unicode code point value.
+4. **concat(string1, string2, ..., stringN)**: Joins two or more strings and returns a new concatenated string.
+5. **endsWith(searchString, length)**: Determines whether a string ends with the characters of a specified string.
+6. **fromCharCode(num1, ..., numN)**: Converts Unicode values to characters.
+7. **fromCodePoint(num1, ..., numN)**: Returns a string created by using the specified sequence of code points.
+8. **includes(searchString, position)**: Determines whether a string contains the characters of a specified string.
+9. **indexOf(searchValue, fromIndex)**: Returns the index within the calling string of the first occurrence of the specified value.
+10. **lastIndexOf(searchValue, fromIndex)**: Returns the index within the calling string of the last occurrence of the specified value.
+11. **localeCompare(compareString)**: Returns a number indicating whether a reference string comes before or after or is the same as the given string in sort order.
+12. **match(regexp)**: Retrieves the result of matching a string against a regular expression.
+13. **matchAll(regexp)**: Returns an iterator of all results matching a string against a regular expression.
+14. **normalize(form)**: Returns the Unicode Normalization Form of the string.
+15. **padEnd(targetLength, padString)**: Pads the current string with another string (multiple times, if needed) until it reaches the given length.
+16. **padStart(targetLength, padString)**: Pads the current string from the start with another string (multiple times, if needed) until it reaches the given length.
+17. **repeat(count)**: Returns a new string with a specified number of copies of the string it was called on.
+18. **replace(searchFor, replaceWith)**: Returns a new string with some or all matches of a pattern replaced by a replacement.
+19. **replaceAll(searchFor, replaceWith)**: Returns a new string with all matches of a pattern replaced by a replacement.
+20. **search(regexp)**: Executes a search for a match between a regular expression and this String object.
+21. **slice(beginIndex, endIndex)**: Extracts a section of a string and returns it as a new string.
+22. **split(separator, limit)**: Splits a String object into an array of strings by separating the string into substrings.
+23. **startsWith(searchString, position)**: Determines whether a string begins with the characters of a specified string.
+24. **substring(indexStart, indexEnd)**: Returns a subset of a string between one index and another, or through the end of the string.
+25. **toLocaleLowerCase()**: The characters within a string are converted to lowercase while respecting the current locale.
+26. **toLocaleUpperCase()**: The characters within a string are converted to uppercase while respecting the current locale.
+27. **toLowerCase()**: Returns the calling string value converted to lowercase.
+28. **toString()**: Returns a string representing the specified object.
+29. **toUpperCase()**: Returns the calling string value converted to uppercase.
+30. **trim()**: Removes whitespace from both ends of a string.
+31. **trimStart() / trimLeft()**: Removes whitespace from the beginning of a string.
+32. **trimEnd() / trimRight()**: Removes whitespace from the end of a string.
+33. **valueOf()**: Returns the primitive value of a String object.
+
+These methods cover most string manipulation needs in JavaScript.
