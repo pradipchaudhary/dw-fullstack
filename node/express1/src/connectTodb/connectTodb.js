@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 // database connect function
-const connectTodb = () => {
-    mongoose.connect("mongodb://localhost:27017");
+const connectTodb = async () => {
+    await mongoose.connect("mongodb://0.0.0.0:27017/dw-fullstack");
     console.log("Database connected!");
 };
 
