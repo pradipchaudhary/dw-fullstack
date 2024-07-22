@@ -5,15 +5,12 @@ import mongoose from "mongoose";
 const productSchema = mongoose.Schema({
     name: {
         type: String,
-        require: [true],
+        require: true,
     },
-    description: {
-        type: String,
-        require: [true],
-    },
+
     price: {
         type: Number,
-        require: [ture],
+        require: true,
     },
     quantity: {
         type: Number,

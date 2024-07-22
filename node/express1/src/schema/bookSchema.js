@@ -10,8 +10,8 @@ const bookSchema = mongoose.Schema({
         type: String,
         require: [true],
     },
-    description: {
-        type: String,
+    price: {
+        type: Number,
         require: [true],
     },
 });

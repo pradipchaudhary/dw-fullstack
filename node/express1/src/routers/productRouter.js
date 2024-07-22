@@ -1,24 +1,22 @@
 import { Router } from "express";
 const productRouter = Router();
+import { Product } from "../schema/model.js";
 
-productRouter
-    .route("/product")
-    .get((req, res) => {
-        res.json("Get all products!");
-    })
-    .post((req, res) => {
-        res.json("Post products!");
-    });
+productRouter.route("/product").post(async (req, res, next) => {
+    const data = req.body;
+    try {
+        const result = await Product.create(data);
+        res.status(200).json({
+            success: true,
+            message: "Product created successfuly.",
+            result: result,
+        });
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: error.message,
+        });
+    }
+});
 
-productRouter
-    .route("/product/:id")
-    .get((req, res) => {
-        res.json("Get specific product!");
-    })
-    .patch((req, res) => {
-        res.json("Update specific product!");
-    })
-    .delete((req, res) => {
-        res.json("Delete specfic product!");
-    });
 export default productRouter;
