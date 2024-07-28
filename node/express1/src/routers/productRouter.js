@@ -1,76 +1,36 @@
 import { Router } from "express";
+import {
+    createProductController,
+    deleteProductController,
+    readAllProductController,
+    readSpecificProductController,
+    updateProductController,
+} from "../controller/productController.js";
 const productRouter = Router();
-import { Product } from "../schema/model.js";
 
-productRouter.route("/product").post(async (req, res, next) => {
-    const data = req.body;
-    try {
-        const result = await Product.create(data);
-        res.status(200).json({
-            success: true,
-            message: "Product created successfuly.",
-            result: result,
-        });
-    } catch (error) {
-        res.status(400).json({
-            success: false,
-            message: error.message,
-        });
-    }
-});
+productRouter
+    .route("/product")
+    .post(createProductController)
+    .get(readAllProductController);
 
 productRouter
     .route("/product/:id")
     // Get singe product
-    .get(async (req, res, next) => {
-        try {
-            const result = await Product.findById(req.params.id);
-            res.status(200).json({
-                success: true,
-                message: "read single product!",
-                result: result,
-            });
-        } catch (error) {
-            res.status(400).json({
-                success: true,
-                message: error.message,
-            });
-        }
-    })
+    .get(readSpecificProductController)
     // Update product
-    .patch(async (req, res, next) => {
-        try {
-            const result = await Product.findByIdAndUpdate(
-                req.params.id,
-                req.body,
-                { new: true }
-            );
-            res.status(200).json({
-                success: true,
-                message: "Update successfully!",
-                resut: result,
-            });
-        } catch (error) {
-            res.status(200).json({
-                success: false,
-                message: error.message,
-            });
-        }
-    })
+    .patch(updateProductController)
     // Delete product
-    .delete(async (req, res, next) => {
-        try {
-            const result = await Product.findByIdAndDelete(req.params.id);
-            res.status(200).json({
-                success: true,
-                message: "Delete successfully!",
-                result: result,
-            });
-        } catch (error) {
-            res.status(200).json({
-                success: false,
-                message: error.message,
-            });
-        }
-    });
+    .delete(deleteProductController);
 export default productRouter;
+
+/**
+ *
+ * Produc.create(req.body)
+ * Product.find({})
+ * Product.findById(req.params.id)
+ * Product.findByIdAndUpdate(req.params.id, req.body, {new:true})
+ * Product.findByIdAndDelete(req.params.id)
+ *
+ * * Note:- alt+shift+p => unuse import file remove
+ *
+ */
