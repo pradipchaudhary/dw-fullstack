@@ -1,22 +1,36 @@
 import { Router } from "express";
+import {
+    createProductController,
+    deleteProductController,
+    readAllProductController,
+    readSpecificProductController,
+    updateProductController,
+} from "../controller/productController.js";
 const productRouter = Router();
-import { Product } from "../schema/model.js";
 
-productRouter.route("/product").post(async (req, res, next) => {
-    const data = req.body;
-    try {
-        const result = await Product.create(data);
-        res.status(200).json({
-            success: true,
-            message: "Product created successfuly.",
-            result: result,
-        });
-    } catch (error) {
-        res.status(400).json({
-            success: false,
-            message: error.message,
-        });
-    }
-});
+productRouter
+    .route("/product")
+    .post(createProductController)
+    .get(readAllProductController);
 
+productRouter
+    .route("/product/:id")
+    // Get singe product
+    .get(readSpecificProductController)
+    // Update product
+    .patch(updateProductController)
+    // Delete product
+    .delete(deleteProductController);
 export default productRouter;
+
+/**
+ *
+ * Produc.create(req.body)
+ * Product.find({})
+ * Product.findById(req.params.id)
+ * Product.findByIdAndUpdate(req.params.id, req.body, {new:true})
+ * Product.findByIdAndDelete(req.params.id)
+ *
+ * * Note:- alt+shift+p => unuse import file remove
+ *
+ */

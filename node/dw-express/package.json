@@ -1,5 +1,5 @@
 {
-    "name": "express1",
+    "name": "dw-express",
     "version": "1.0.0",
     "main": "index.js",
     "type": "module",
@@ -10,10 +10,9 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
+    "description": "",
     "dependencies": {
         "express": "^4.19.2",
-        "express-async-handler": "^1.2.0",
         "mongoose": "^8.5.1"
-    },
-    "description": ""
+    }
 }

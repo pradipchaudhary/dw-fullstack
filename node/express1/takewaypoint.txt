@@ -1,0 +1,25 @@
+# How to make promises
+ async function are promise
+
+# expressAsyncHandler
+    it is wrapper 
+    it always wrap async function
+    if any error occur at that function it call next(error)
+
+# Day 8
+    -> while update { new: ture} it will give new data
+
+    -> scheam design 
+    -> schema manipulation
+    -> schema validation
+    -> 
+    
+    - red
+    - update
+    - delete
+
+
+# practice 
+ - for in 
+ - for of
+ - stict 
