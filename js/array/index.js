@@ -19,3 +19,11 @@ do {
     console.log("do white index: ", doindex);
     doindex++;
 } while (doindex > 88);
+
+// array slice method
+
+const newNumber = numbers.slice(1, 3);
+console.log(newNumber);
+
+const newFruits = fruits.slice(1, fruits.length);
+console.log(newFruits);
