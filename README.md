@@ -1,8 +1,7 @@
-
 # dw-fullstack
 
 This repository contains my personal notes and resources from the Full Stack Web Development – MERN Stack course at Deerwalk Training Center.
-=======
+
 # DW Fullstack
 
 Welcome to the DW Fullstack repository! This project is designed to showcase a comprehensive full-stack web application using modern technologies.
@@ -54,73 +53,6 @@ The DW Fullstack project is a demonstration of a fully functional web applicatio
 
 To run this project locally, follow these steps:
 
-1. **Clone the repository:**
-
-    ```bash
-    git clone https://github.com/pradipchaudhary/dw-fullstack.git
-    cd dw-fullstack
-    ```
-
-2. **Install frontend dependencies:**
-
-    ```bash
-    cd frontend
-    npm install
-    ```
-
-3. **Install backend dependencies:**
-
-    ```bash
-    cd ../backend
-    npm install
-    ```
-
-4. **Set up environment variables:**
-
-    Create a `.env` file in the `backend` directory and add the necessary environment variables. For example:
-
-    ```plaintext
-    PORT=5000
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET=your_jwt_secret
-    ```
-
-5. **Run the development servers:**
-
-    Start the frontend development server:
-
-    ```bash
-    cd ../frontend
-    npm start
-    ```
-
-    Start the backend development server:
-
-    ```bash
-    cd ../backend
-    npm run dev
-    ```
-
-6. **Open the application:**
-
-    Open your web browser and go to `http://localhost:3000`.
-
-## Usage
-
--   Register a new account or log in with existing credentials.
--   Explore the application features, including creating, reading, updating, and deleting resources.
--   Manage user profiles and settings.
-
-## Contributing
-
-Contributions are welcome! To contribute to this project, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature/your-feature-name`.
-3. Make your changes and commit them: `git commit -m 'Add some feature'`.
-4. Push to the branch: `git push origin feature/your-feature-name`.
-5. Create a pull request.
-
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
@@ -136,4 +68,3 @@ If you have any questions or suggestions, feel free to reach out to me:
 ---
 
 Thank you for visiting this repository! I hope you find it useful and informative.
-
