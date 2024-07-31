@@ -22,7 +22,7 @@ export const createProductController = expressAsyncHandler(
 
 export const readAllProductController = expressAsyncHandler(
     async (req, res, next) => {
-        const result = await readAllProductService();
+        const result = await readAllProductService(req);
         res.status(200).json({
             success: true,
             message: "Read all Product !",

@@ -9,15 +9,28 @@
 # Day 8
     -> while update { new: ture} it will give new data
 
-    -> scheam design 
-    -> schema manipulation
-    -> schema validation
-    -> 
+    # Post 
+       -> scheam design 
+       -> schema manipulation
+       -> schema validation
+       -> 
     
-    - red
+    # read
+      => Searching
+        -> find 
+        -> findOne
+        -> select
+      => sorting
+        -> sort 
+      => pagination
+        -> limit
+        -> skip 
     - update
     - delete
 
+
+# Query 
+const data = req.query;
 
 # practice 
  - for in 

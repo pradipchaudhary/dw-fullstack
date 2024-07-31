@@ -1,3 +1,8 @@
+
+# dw-fullstack
+
+This repository contains my personal notes and resources from the Full Stack Web Development – MERN Stack course at Deerwalk Training Center.
+=======
 # DW Fullstack
 
 Welcome to the DW Fullstack repository! This project is designed to showcase a comprehensive full-stack web application using modern technologies.
@@ -131,3 +136,4 @@ If you have any questions or suggestions, feel free to reach out to me:
 ---
 
 Thank you for visiting this repository! I hope you find it useful and informative.
+
