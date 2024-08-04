@@ -1,21 +1,21 @@
+import { config } from "dotenv";
 import express, { json } from "express";
-import todoRouter from "./src/routers/todoRoute.js";
-import mongoDb from "./src/config/db.js";
+import connectDB from "./src/config/db.js";
+
+config();
+
 const app = express();
+const PORT = process.env.PORT || 8000;
+
+// Connect Database
+connectDB();
+
+// Middleware
 app.use(json());
 
-// root router
-app.get("/", (req, res, next) => {
-    console.log("Home route");
-    res.json({
-        page: "Home Page ",
-    });
+// Routes
+// Error Handling Middleware
+// listen on port :
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}.`);
 });
-
-// todo router
-app.use("/todo", todoRouter);
-
-app.listen(4000, () => {
-    console.log(`Server running on http://localhost:4000`);
-});
-mongoDb();
