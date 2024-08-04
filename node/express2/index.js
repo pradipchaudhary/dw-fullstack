@@ -1,7 +1,10 @@
 import express, { json } from "express";
 import connectDB from "./src/config/db.js";
+import { config } from "dotenv";
+import userRoutes from "./src/routes/userRoutes.js";
+
+config();
 const app = express();
-const PORT = 8000;
 
 // Middleware
 app.use(json());
@@ -11,6 +14,9 @@ connectDB();
 
 // Routes
 app.use("/api/user", userRoutes);
+
+// listening on port
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
