@@ -15,5 +15,5 @@
         "express-async-handler": "^1.2.0",
         "mongoose": "^8.5.1"
     },
-    "description": ""
+    "description": "Simple todo api to practice nodejs, express, mongoDB"
 }

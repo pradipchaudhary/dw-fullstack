@@ -34,3 +34,6 @@ function generateToken(user) {
 const user = { id: "1234567890", name: "John Doe" };
 const token = generateToken(user);
 console.log("JWT:", token);
+
+const verifyToken = jwt.verify(token, secretKey);
+console.log(verifyToken);
