@@ -1,5 +1,7 @@
 import expressAsyncHandler from "express-async-handler";
 import { User } from "../schema/model.js";
+import { sendEmail } from "../utils/sendmail.js";
+import { user } from "../utils/constant.js";
 
 // Get all user
 export const getAllUser = expressAsyncHandler(async (req, res, next) => {
@@ -13,7 +15,25 @@ export const getAllUser = expressAsyncHandler(async (req, res, next) => {
 // create user
 export const createUser = expressAsyncHandler(async (req, res, next) => {
     const data = await User.create(req.body);
-    res.status(200).json({
+
+    await sendEmail({
+        from: `dw17 projects <${user}>`,
+        to: [req.body.email],
+        subject: "Registration.",
+        html: `<p>
+            Hello,
+
+            This is a test message from my sendmail test application. Please confirm receipt of this email.
+
+            Thank you!
+
+            Best regards,
+            ${req.body.username}
+
+        </p>`,
+    });
+
+    res.status(201).json({
         message: "User create successfully.",
         data: data,
     });
