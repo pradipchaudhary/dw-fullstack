@@ -1,0 +1,2 @@
+file diamonsan
+file compress 
