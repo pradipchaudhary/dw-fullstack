@@ -15,7 +15,7 @@ const ButttonClick = () => {
         console.log("Button 4 click ..", value);
     };
     return (
-        <div>
+        <div className="buttons">
             <button
                 onClick={function () {
                     console.log("Button 1 click...");

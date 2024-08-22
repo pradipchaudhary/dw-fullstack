@@ -5,8 +5,8 @@ import LearnCss from "./components/LearnCss";
 const App = function () {
     return (
         <div>
-            <div>Hello,</div>
-            <div>Welcome to the React 1 app. </div>
+            <h3>Hello,</h3>
+            <h1>Welcome to the React app. </h1>
             <Info />
             <ButttonClick />
             <LearnCss />
