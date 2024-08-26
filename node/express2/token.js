@@ -1,18 +1,5 @@
 import jwt from "jsonwebtoken";
 
-// const info = {
-//     id: "123",
-// };
-// const secretKey = "hwoo";
-
-// const expiryInfo = {
-//     expiresIn: "365d",
-// };
-
-// const token = jwt.sign(info, secretKey, expiryInfo);
-
-// console.log(token);
-
 const secretKey = "your-secret-key";
 
 function generateToken(user) {
