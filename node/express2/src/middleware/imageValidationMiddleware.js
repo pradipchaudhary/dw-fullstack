@@ -1,8 +1,6 @@
 // Middleware to validate image dimensions after upload
 const validateAndProcessImage = async (req, res, next) => {
     // const filePath = req.file.path;
-    console.log(req.file);
-
     try {
         // Process the image file with sharp
         const metadata = await sharp(filePath).metadata();
