@@ -1,13 +1,18 @@
+import fs from "fs";
+import path from "path";
+import sharp from "sharp";
 // Middleware to validate image dimensions after upload
 const validateAndProcessImage = async (req, res, next) => {
-    // const filePath = req.file.path;
+    console.log("file path: ", req.file.path);
+    const filePath = req.file.path;
+    console.log(filePath);
     try {
         // Process the image file with sharp
         const metadata = await sharp(filePath).metadata();
 
         // Define maximum allowed dimensions
-        const maxHeight = 500;
-        const maxWidth = 500;
+        const maxHeight = 600;
+        const maxWidth = 600;
 
         if (metadata.width > maxWidth || metadata.height > maxHeight) {
             // If dimensions are not valid, delete the file
