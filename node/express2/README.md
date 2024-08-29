@@ -63,37 +63,6 @@ The application exposes the following API endpoints:
 -   `GET /api/file/:filename` - Retrieve a file by filename.
 -   `DELETE /api/file/:filename` - Delete a file by filename.
 
-## Project Structure
-
-```plaintext
-your-repo-name/
-├── routes/
-│   ├── userRoutes.js
-│   ├── productRoutes.js
-│   ├── reviewRoutes.js
-│   └── fileRouter.js
-├── controllers/
-│   ├── userController.js
-│   ├── productController.js
-│   ├── reviewController.js
-│   └── fileController.js
-├── models/
-│   ├── userModel.js
-│   ├── productModel.js
-│   ├── reviewModel.js
-│   └── fileModel.js
-├── middleware/
-│   └── authMiddleware.js
-├── app.js
-└── package.json
-```
-
--   `routes/` - Contains the route definitions for users, products, reviews, and files.
--   `controllers/` - Contains the business logic for handling requests and responses.
--   `models/` - Contains the data models for users, products, reviews, and files.
--   `middleware/` - Contains middleware functions, such as authentication.
--   `app.js` - Main entry point for the application, where routes are registered.
-
 ## Contributing
 
 Contributions are welcome! Please fork this repository and submit a pull request for any feature additions or bug fixes.
