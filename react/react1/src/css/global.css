@@ -6,6 +6,8 @@
 }
 body {
     padding: 5rem 10%;
+    background-color: #464646;
+    color: #efefef;
 }
 .success {
     background-color: green;
