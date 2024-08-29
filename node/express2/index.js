@@ -19,6 +19,9 @@ app.use(express.static("./public"));
 connectDB();
 
 // Routes
+app.get("/", (req, res) => {
+    res.send("<h1> Heme route... </h1>");
+});
 app.use("/api/user", userRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/review", reviewRoutes);
