@@ -5,10 +5,18 @@ const UserForm = () => {
     const [address, setAddress] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isMarried, setIsMarried] = useState(false);
+    const [country, setCountry] = useState("Choose country");
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(username, password, email, address);
+        // console.log(username, email, address, password, isMarried);
+        console.log("Username: ", username);
+        console.log("Email: ", email);
+        console.log("Address : ", address);
+        console.log("Password : ", password);
+        console.log("IsMarried: ", isMarried);
+        console.log("Country :", country);
     };
 
     return (
@@ -21,7 +29,7 @@ const UserForm = () => {
                     <div className="mb-4">
                         <label
                             htmlFor="username"
-                            className="block text-gray-700 font-semibold mb-2"
+                            className="block text-gray-900 font-semibold mb-2"
                         >
                             Username
                         </label>
@@ -87,6 +95,44 @@ const UserForm = () => {
                             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             placeholder="Enter your password"
                         />
+                    </div>
+                    <div className="mb-6">
+                        <label
+                            htmlFor="isMarried"
+                            className="block text-gray-700 font-semibold mb-2"
+                        >
+                            Are you married?
+                        </label>
+                        <input
+                            type="checkbox"
+                            id="isMarried"
+                            name="isMarried"
+                            checked={isMarried}
+                            onChange={(e) => setIsMarried(e.target.checked)}
+                            className="h-5 w-5 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
+                        />
+                    </div>
+                    <div className="mb-6">
+                        <label
+                            htmlFor="country"
+                            className="block text-gray-700 font-semibold mb-2"
+                        >
+                            Country
+                        </label>
+                        <select
+                            id="country"
+                            name="country"
+                            value={country}
+                            onChange={(e) => setCountry(e.target.value)}
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                            <option value="">Select your country</option>
+                            <option value="USA">United States</option>
+                            <option value="Canada">Canada</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Nepal">Nepal</option>
+                        </select>
                     </div>
                     <button
                         type="submit"
