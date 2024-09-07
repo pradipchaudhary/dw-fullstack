@@ -9,7 +9,6 @@ const InputText = () => {
     // Submit handler
 
     const submitHandler = (e) => {
-        console.log("Submit handler...");
         e.preventDefault();
         console.log("On submitHandler ...!");
         console.log("FirstName: ", firstName);
