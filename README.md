@@ -1,5 +1,3 @@
-
-
 # DW Fullstack
 
 This repository contains my personal notes and resources from the Full Stack Web Development – MERN Stack course at Deerwalk Training Center.
@@ -32,11 +30,12 @@ The DW Fullstack project is a demonstration of a fully functional web applicatio
 
 ### Frontend
 
--   HTML5
--   CSS3
--   JavaScript
--   React.js
--   Redux (or Context API for state management)
+-   [HTML5](./html/README.md)
+-   [CSS3](./CSS/README.md)
+-   [JavaScript](./JavaScript/README.md)
+-   [React.js](./react/README.md)
+-   [Redux (or Context API for state management)](./Redux/README.md)
+-   [Tailwind CSS](./Tailwind/README.md)
 -   Bootstrap (or other CSS frameworks)
 
 ### Backend
