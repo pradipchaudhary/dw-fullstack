@@ -1,10 +1,13 @@
-import Layout from "./Layout";
+// src/pages/Contact.js
 
 const Contact = () => {
     return (
-        <Layout>
-            <h1>Contact Page </h1>
-        </Layout>
+        <div>
+            <div className="container">
+                <h1 className="page-title">Contact Page</h1>
+                <p>Get in touch with us!</p>
+            </div>
+        </div>
     );
 };
 

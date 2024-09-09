@@ -1,23 +1,34 @@
 import { Link } from "react-router-dom";
+import "./NavBar.css"; // Import external CSS
 
 const Navbar = () => {
     return (
-        <nav>
-            <ul
-                style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    listStyleType: "none",
-                }}
-            >
-                <li style={{ margin: "0 10px" }}>
-                    <Link to="/">Home</Link>
+        <nav className="navbar">
+            <ul className="nav-list">
+                <li className="nav-item">
+                    <Link className="nav-link" to="/">
+                        Home
+                    </Link>
                 </li>
-                <li style={{ margin: "0 10px" }}>
-                    <Link to="/blogs">Blog</Link>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/about">
+                        About
+                    </Link>
                 </li>
-                <li style={{ margin: "0 10px" }}>
-                    <Link to="/contact">Contact</Link>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/contact">
+                        Contact
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/login">
+                        Login
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/signup">
+                        Sign Up
+                    </Link>
                 </li>
             </ul>
         </nav>
