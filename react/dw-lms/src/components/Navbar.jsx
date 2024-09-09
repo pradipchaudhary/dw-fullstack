@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
     return (
         <nav>
@@ -9,13 +11,13 @@ const Navbar = () => {
                 }}
             >
                 <li style={{ margin: "0 10px" }}>
-                    <a href="/">Home</a>
+                    <Link to="/">Home</Link>
                 </li>
                 <li style={{ margin: "0 10px" }}>
-                    <a href="/about">About</a>
+                    <Link to="/blogs">Blog</Link>
                 </li>
                 <li style={{ margin: "0 10px" }}>
-                    <a href="/contact">Contact</a>
+                    <Link to="/contact">Contact</Link>
                 </li>
             </ul>
         </nav>
