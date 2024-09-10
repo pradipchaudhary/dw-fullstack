@@ -1,38 +1,97 @@
 // src/components/RegisterForm.js
 import { useState } from "react";
 import "./RegisterForm.css"; // Import the CSS file for styling
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RegisterForm = () => {
     const [formData, setFormData] = useState({
-        username: "",
+        fullname: "",
         email: "",
         password: "",
+        dob: "",
         gender: "",
+        roll: "Admin", // Preset the role field
     });
+
+    const [loading, setLoading] = useState(false); // Loading state
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log("Form Data Submitted:", formData);
+
+        // Basic front-end validation
+        if (
+            !formData.fullname ||
+            !formData.email ||
+            !formData.password ||
+            !formData.dob ||
+            !formData.gender
+        ) {
+            toast.error("Please fill in all required fields");
+            return;
+        }
+
+        setLoading(true); // Set loading to true during submission
+
+        try {
+            const res = await axios.post(
+                "http://localhost:9000/api/user/register",
+                formData
+            );
+            console.log(res.data);
+
+            // Handle success response
+            if (res.data.success) {
+                toast.success(res.data.message);
+                // Reset form after successful submission
+                setFormData({
+                    fullname: "",
+                    email: "",
+                    password: "",
+                    dob: "",
+                    gender: "",
+                    roll: "Admin",
+                });
+            } else {
+                toast.error(res.data.message);
+            }
+        } catch (error) {
+            if (error.response) {
+                // Server-side error
+                toast.error(error.response.data.message || "An error occurred");
+            } else {
+                // Client-side or network error
+                toast.error(error.message);
+            }
+        } finally {
+            setLoading(false); // Always reset loading state
+        }
     };
 
     return (
         <form className="register-form" onSubmit={handleSubmit}>
+            <ToastContainer />
+
             <div className="form-group">
-                <label htmlFor="username">Username</label>
+                <label htmlFor="fullname">Full Name</label>
                 <input
                     type="text"
-                    id="username"
-                    name="username"
+                    id="fullname"
+                    name="fullname"
                     className="form-input"
-                    value={formData.username}
+                    value={formData.fullname}
                     onChange={handleChange}
                     required
+                    autoComplete="off"
                 />
             </div>
 
@@ -46,6 +105,7 @@ const RegisterForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    autoComplete="off"
                 />
             </div>
 
@@ -59,8 +119,10 @@ const RegisterForm = () => {
                     value={formData.password}
                     onChange={handleChange}
                     required
+                    autoComplete="new-password"
                 />
             </div>
+
             <div className="form-group">
                 <label htmlFor="dob">Date of Birth</label>
                 <input
@@ -73,6 +135,7 @@ const RegisterForm = () => {
                     required
                 />
             </div>
+
             <div className="form-group">
                 <label>Gender</label>
                 <div className="form-radio-group">
@@ -83,6 +146,7 @@ const RegisterForm = () => {
                             value="male"
                             checked={formData.gender === "male"}
                             onChange={handleChange}
+                            required
                         />
                         Male
                     </label>
@@ -93,6 +157,7 @@ const RegisterForm = () => {
                             value="female"
                             checked={formData.gender === "female"}
                             onChange={handleChange}
+                            required
                         />
                         Female
                     </label>
@@ -103,14 +168,15 @@ const RegisterForm = () => {
                             value="other"
                             checked={formData.gender === "other"}
                             onChange={handleChange}
+                            required
                         />
                         Other
                     </label>
                 </div>
             </div>
 
-            <button type="submit" className="form-submit">
-                Register
+            <button type="submit" className="form-submit" disabled={loading}>
+                {loading ? "Submitting..." : "Register"}
             </button>
         </form>
     );

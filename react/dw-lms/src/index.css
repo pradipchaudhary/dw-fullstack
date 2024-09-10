@@ -87,6 +87,8 @@ h1.page-title {
     line-height: 1rem;
     margin-bottom: 1.25rem;
     font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 /* Blog Article */
@@ -200,43 +202,6 @@ h1.page-title {
     cursor: not-allowed;
 }
 
-/* Sign-up and policy links styling */
-.signup-text,
-.policy-text {
-    margin-top: 0.75rem;
-    text-align: center;
-    font-size: 0.875rem;
-    color: #4b5563;
-}
-
-.signup-text a {
-    font-weight: 500;
-    color: #2563eb;
-    text-decoration: none;
-}
-
-.signup-text a:hover {
-    color: #1d4ed8;
-    text-decoration: underline;
-}
-
-.policy-text {
-    text-align: left;
-    font-size: 0.75rem;
-    line-height: 1.5rem;
-    color: #6b7280;
-}
-
-.policy-text a {
-    font-weight: 500;
-    color: #000000;
-    text-decoration: underline;
-}
-
-.policy-text a:hover {
-    color: #333333;
-}
-
 /* === Footer Page */
 footer {
     background-color: #282c34;
@@ -249,9 +214,15 @@ footer {
 }
 
 /* Users items */
-.user-item {
-    margin: 5px;
-    padding: 5px;
-    border: 1px solid #efefef;
+.user-items {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.user-item {
+    min-width: 400px;
+    border: 1px solid #efefef;
+    padding: 2rem 0.5rem;
 }

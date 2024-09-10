@@ -7,7 +7,8 @@ const Header = () => {
         <header>
             <div className="container header-container">
                 <Link to="/" className="brand-logo">
-                    <img src={Logo} alt="Logo" style={{ width: "35px" }} />
+                    <h1>DW</h1>
+                    {/* <img src={Logo} alt="Logo" style={{ width: "35px" }} /> */}
                 </Link>
                 <Navbar />
             </div>
