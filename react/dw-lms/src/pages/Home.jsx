@@ -2,17 +2,16 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import UserTable from "../components/UserTable";
 
 const Home = () => {
     const [users, setUsers] = useState([]);
 
     const getUsers = async () => {
-        await axios
-            .get("https://jsonplaceholder.typicode.com/users")
-            .then((res) => {
-                console.log(res.data);
-                setUsers(res.data);
-            });
+        await axios.get("http://localhost:9000/api/user").then((res) => {
+            console.log(res.data.data);
+            setUsers(res.data.data);
+        });
     };
 
     useEffect(() => {
@@ -32,16 +31,7 @@ const Home = () => {
                 </div>
             </section>
             <section className="intro">
-                <div className="container">
-                    <h2>Users</h2>
-                    {users.map((user) => {
-                        return (
-                            <div className="user-item" key={user.id}>
-                                <h4>{user.name}</h4>
-                            </div>
-                        );
-                    })}
-                </div>
+                <UserTable users={users} />
             </section>
         </>
     );
