@@ -1,44 +1,34 @@
-import express, { json } from "express";
 import cors from "cors";
-import { config } from "dotenv";
-import connectDB from "./src/config/db.js";
-import userRoutes from "./src/routes/userRoutes.js";
-import productRoutes from "./src/routes/productRoutes.js";
-import reviewRoutes from "./src/routes/reviewRoutes.js";
-import fileRouter from "./src/routes/fileRoutes.js";
+import express, { json } from "express";
+import connectToMongdoDb from "./src/connectTodb/connectToDb.js";
+import { errorMiddleware } from "./src/midddleware/errorMiddleware.js";
+import productRouter from "./src/route/productRoute.js";
+import ReviewRouter from "./src/route/reviewRoute.js";
+import UserRouter from "./src/route/userRoute.js";
+import fileRouter from "./src/route/fileRouter.js";
+import webUserRouter from "./src/route/webUserRoute.js";
+import newRouter from "./src/route/eventRoute.js";
 
-config();
-const app = express();
+const expressApp = express();
 
-// Middleware
-app.use(json());
-app.use(cors());
-app.use(express.static("./public"));
+expressApp.use(express.static("./public"));//all file are placed in static folder
+expressApp.use(json()); //first
+expressApp.use(cors()); //first
 
-// MongoDB Connection
-connectDB();
+// config();
+// console.log(process.env.FULL_NAME);
+// console.log(process.env.AGE);
 
-// Routes
-app.get("/", (req, res) => {
-    res.send("<h1> Heme route... </h1>");
-});
-app.get("/about", (req, res) => {
-    res.send("<h1>About page </h1>");
-});
-app.get("/blog", (req, res) => {
-    res.send("<h1>Blog Post </h1>");
-});
-app.use("/api/user", userRoutes);
-app.use("/api/product", productRoutes);
-app.use("/api/review", reviewRoutes);
-app.use("/api/file", fileRouter);
-
-// listening on port
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+expressApp.listen(8000, () => {
+  console.log("server is running on port 8000");
+  connectToMongdoDb();
 });
 
-// Get picture in public folder
+expressApp.use(productRouter);
+expressApp.use(UserRouter);
+expressApp.use(ReviewRouter);
+expressApp.use(fileRouter);
+expressApp.use(webUserRouter);
+expressApp.use(newRouter);
 
-// http://localhost:8000/picture.jpg
+expressApp.use(errorMiddleware);
