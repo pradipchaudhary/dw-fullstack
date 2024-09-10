@@ -1,36 +1,48 @@
 // src/components/RegisterForm.js
 import { useState } from "react";
 import "./RegisterForm.css"; // Import the CSS file for styling
+import axios from "axios";
 
 const RegisterForm = () => {
     const [formData, setFormData] = useState({
-        username: "",
+        fullname: "",
         email: "",
         password: "",
         gender: "",
     });
-
+    console.log("beforem form data: ", formData);
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        setFormData({ ...formData, [name]: value, roll: "Admin" });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // Handle form submission logic here
-        console.log("Form Data Submitted:", formData);
+        // console.log("Form Data Submitted:", formData);
+        try {
+            const res = await axios({
+                url: "http://localhost:9000/api/user/register",
+                method: "POST",
+                data: formData,
+            });
+            console.log(res.data);
+            console.log(res.data.message);
+        } catch (error) {
+            console.log(error.message);
+        }
     };
 
     return (
         <form className="register-form" onSubmit={handleSubmit}>
             <div className="form-group">
-                <label htmlFor="username">Username</label>
+                <label htmlFor="fullname">Full Name</label>
                 <input
                     type="text"
-                    id="username"
-                    name="username"
+                    id="fullname"
+                    name="fullname"
                     className="form-input"
-                    value={formData.username}
+                    value={formData.fullname}
                     onChange={handleChange}
                     required
                 />
