@@ -1,17 +1,29 @@
+/* 
+hasing
+    same text has differnt hased code ( for securtiy reason)
+    generate hased code
+    verify hased code
+ */
+
+// password@123 => $2b$10$HsDe9ZaWnr9L/XITt975leJuBPN86IjpYJfK6r9Quk.6Cbugm30/y
+
 import bcrypt from "bcrypt";
 
-// Generate hash code
-// Password123 => $2b$10$UdrLAKlj0SB2.lF1wGrIAeU2kag1TZQeVoIVMK8/2dxy20rRHlsO6
-// same text has diffenet hash code (for security resean )
-const password = "Pradip123";
+// let password = " password@123";
 
-const hashingPassword = await bcrypt.hash(password, 10);
-console.log(hashingPassword);
+// let hasedPass = await bcrypt.hash("password", 10);
 
-const isValidPass = await bcrypt.compare(
-    // this code result either true or false
-    password,
-    "$2b$10$UdrLAKlj0SB2.lF1wGrIAeU2kag1TZQeVoIVMK8/2dxy20rRHlsO6"
-);
+// console.log(hasedPass);
+let dbPassword =  " $2b$10$k2csrg3XL2soO2RyQ1Cgaex2eok5xsBP3lrbpuP7Dv0s9rP6XdBO6"
 
-console.log(isValidPass);
+let isValidPassword = await bcrypt.compare("password@123",dbPassword)
+
+console.log(isValidPassword)
+
+/* 
+bcrypt.hash("abc",10)
+    here this code convert abc to  hashed code
+bcrypt.compare("Password@123", dbPassword);
+    this code result either true or false
+    if Password@123 is used to make dbPassword it will return true else return false
+*/
