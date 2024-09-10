@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
 import Navbar from "./Navbar";
-
+import "./Header.css";
+import Logo from "../assets/logo.png";
 const Header = () => {
     return (
         <header>
             <div className="container header-container">
                 <Link to="/" className="brand-logo">
-                    <img src={logo} alt="Logo" style={{ width: "35px" }} />
+                    <img src={Logo} alt="Logo" style={{ width: "35px" }} />
                 </Link>
                 <Navbar />
             </div>

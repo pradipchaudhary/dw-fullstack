@@ -1,8 +1,26 @@
-import Layout from "./Layout";
+// src/pages/Home.js
+
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+    const [users, setUsers] = useState([]);
+
+    const getUsers = async () => {
+        await axios
+            .get("https://jsonplaceholder.typicode.com/users")
+            .then((res) => {
+                console.log(res.data);
+                setUsers(res.data);
+            });
+    };
+
+    useEffect(() => {
+        getUsers();
+    }, []);
+
     return (
-        <Layout>
+        <>
             <section className="hero">
                 <div className="container">
                     <h1>Welcome to Our Website</h1>
@@ -15,14 +33,17 @@ const Home = () => {
             </section>
             <section className="intro">
                 <div className="container">
-                    <h2>About Us</h2>
-                    <p>
-                        We are dedicated to providing the best services and
-                        content for our users.
-                    </p>
+                    <h2>Users</h2>
+                    {users.map((user) => {
+                        return (
+                            <div className="user-item" key={user.id}>
+                                <h4>{user.name}</h4>
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
-        </Layout>
+        </>
     );
 };
 
