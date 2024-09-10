@@ -2,16 +2,6 @@
 
 This repository contains my personal notes and resources from the Full Stack Web Development – MERN Stack course at Deerwalk Training Center.
 
-## Table of Contents
-
--   [Introduction](#introduction)
--   [Features](#features)
--   [Technologies Used](#technologies-used)
--   [Setup and Installation](#setup-and-installation)
--   [Usage](#usage)
--   [Contributing](#contributing)
--   [License](#license)
--   [Contact](#contact)
 
 ## Introduction
 
