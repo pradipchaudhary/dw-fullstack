@@ -8,10 +8,11 @@ import UserRouter from "./src/route/userRoute.js";
 import fileRouter from "./src/route/fileRouter.js";
 import webUserRouter from "./src/route/webUserRoute.js";
 import newRouter from "./src/route/eventRoute.js";
+import { port } from "./constant.js";
 
 const expressApp = express();
 
-expressApp.use(express.static("./public"));//all file are placed in static folder
+expressApp.use(express.static("./public")); //all file are placed in static folder
 expressApp.use(json()); //first
 expressApp.use(cors()); //first
 
@@ -19,9 +20,8 @@ expressApp.use(cors()); //first
 // console.log(process.env.FULL_NAME);
 // console.log(process.env.AGE);
 
-expressApp.listen(8000, () => {
-  console.log("server is running on port 8000");
-  connectToMongdoDb();
+expressApp.get("/", (req, res) => {
+    res.send("Home Page ...");
 });
 
 expressApp.use(productRouter);
@@ -32,3 +32,8 @@ expressApp.use(webUserRouter);
 expressApp.use(newRouter);
 
 expressApp.use(errorMiddleware);
+
+expressApp.listen(port, () => {
+    console.log(`server running on http://localhost:${port}`);
+    connectToMongdoDb();
+});
