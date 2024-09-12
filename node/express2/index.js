@@ -21,7 +21,7 @@ expressApp.use(cors()); //first
 // console.log(process.env.AGE);
 
 expressApp.get("/", (req, res) => {
-    res.send("Home Page ...");
+    res.send("Home Page route...");
 });
 
 expressApp.use(productRouter);
