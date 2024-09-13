@@ -15,16 +15,7 @@ const About = () => {
             <h1>About Page here...</h1>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum, quos! Delectus minima in beatae aspernatur.
-                Consectetur, dolor iusto excepturi dolores repudiandae enim
-                architecto autem nisi quos cupiditate, ad tempora aut minus
-                quasi vel distinctio harum modi nihil delectus consequuntur!
-                Laboriosam nam temporibus qui eius doloremque? Amet saepe
-                provident cupiditate dolorum reiciendis, consequuntur adipisci
-                voluptatem praesentium nam soluta maxime hic, exercitationem
-                quos consectetur? Sit, fuga! Provident error, officia nisi nemo
-                deleniti alias dolores non mollitia expedita facere, minima cum
-                aspernatur. Quo!
+                Dolorum, quos!
             </p>
         </div>
     );
