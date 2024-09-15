@@ -89,11 +89,4 @@ project-root/
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
----
-
 Made by [Pradip Chaudhary](https://github.com/pradipchaudhary)
-
-```
-
-You can add this `README.md` file to your repository to give a clear overview of your project!
-```
