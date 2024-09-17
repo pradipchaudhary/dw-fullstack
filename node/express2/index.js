@@ -28,7 +28,7 @@ expressApp.use(UserRouter);
 expressApp.use(productRouter);
 expressApp.use(ReviewRouter);
 expressApp.use(fileRouter);
-expressApp.use(webUserRouter);
+expressApp.use("/admin", webUserRouter);
 expressApp.use(newRouter);
 
 expressApp.use(errorMiddleware);
