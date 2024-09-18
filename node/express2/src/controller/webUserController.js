@@ -301,8 +301,9 @@ export const deleteSpecificUser = async (req, res, next) => {
 export const forgetPassword = async (req, res, next) => {
     try {
         let email = req.body.email;
+        console.log(email);
         let result = await WebUser.findOne({ email: email });
-
+        console.log(result);
         if (result) {
             const info = {
                 id: result._id,
@@ -314,14 +315,29 @@ export const forgetPassword = async (req, res, next) => {
 
             let token = jwt.sign(info, secretKey, expireDate);
 
+            // Send verification email
+            const verificationUrl = `http://localhost:5173/admin/reset-password?token=${token}`;
+
             await sendEmail({
-                from: "yeeee <yangjilama13@gmail.com>",
-                to: email,
-                subject: "reset password",
-                html: `<h1>please click given link to reset password</h1>
-        <a href="http://localhost:3000/reset-password?token=${token}">
-          http://localhost:3000/reset-password?token=${token}
-          </a>`,
+                from: `dw17 projects> <chaudharypradip678@gmail.com`,
+                to: [email],
+                subject: "Reset Password ",
+                html: `<div>
+              <p>Hello,</p>
+  
+              <p>This is a Admin Reset password message from my sendmail Express2 application. Please confirm receipt of this email.</p>
+
+              <p>
+                <a href=${verificationUrl}>
+                ${verificationUrl}
+                </a>
+              </p>
+  
+              <p>Thank you!</p>
+  
+              <p>Best regards,</p>
+  
+          </div>`,
             });
 
             res.status(200).json({
