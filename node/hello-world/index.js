@@ -1,12 +1,20 @@
-// callback
-
-function greet(name) {
-    console.log("Good morning,", name);
+function fetchData(callback) {
+    // Fetch data
+    const url = "https://jsonplaceholder.typicode.com/posts";
+    setTimeout(() => {
+        const data = {
+            name: "Pradip Chaudhary",
+            age: 30,
+            profession: "Software Enginnering",
+        };
+        callback(data);
+    }, 8000);
 }
 
-function addNewUser(callback) {
-    const name = "Pradip Chaudhary";
-    callback(name);
+function displayData(data) {
+    console.log("Data: ", data);
 }
 
-addNewUser(greet);
+console.log("Do Some work...");
+
+fetchData(displayData);
