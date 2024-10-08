@@ -1,7 +1,7 @@
 const User = ({ user, age }) => {
     return (
         <div>
-            <p>Username: {user}</p>
+            {user ? <p>Username: {user}</p> : <p>No username</p>}
             <p>Age: {age}</p>
         </div>
     );
