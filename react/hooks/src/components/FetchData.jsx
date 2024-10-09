@@ -9,7 +9,7 @@ const FetchData = () => {
             .then((data) => setData(data));
     }, []);
 
-    return <div>{data ? data : <p>Loading...</p>}</div>;
+    return <div>{data ? JSON.stringify(data) : <p>Loading...</p>}</div>;
 };
 
 export default FetchData;
