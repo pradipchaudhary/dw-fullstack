@@ -1,5 +1,5 @@
 # DW Fullstack
-
+![Portfolio Banner](banner.png)
 This repository contains my personal notes and resources from the Full Stack Web Development – MERN Stack course at Deerwalk Training Center.
 
 
